@@ -17,6 +17,9 @@ metadata:
   creationTimestamp: "2020-08-11T11:22:29Z"
   name: aws-auth
   namespace: kube-system
-  resourceVersion: "1289"
+  resourceVersion: "926379"
   selfLink: /api/v1/namespaces/kube-system/configmaps/aws-auth
   uid: e3a53808-ad95-443c-8d28-1418b021e785
+
+export TOKEN=`curl -d '{"email":"vincentedeh42@gmail.com","password":"Mygenerator1"}' -H "Content-Type: application/json" -X POST <EXTERNAL-IP URL>/auth  | jq -r '.token'`
+curl --request GET 'a8a82e15c6b2d4c86830ec137296a195-1046866868.us-west-2.elb.amazonaws.com/contents' -H "Authorization: Bearer ${TOKEN}" | jq
